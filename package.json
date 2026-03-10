@@ -1,22 +1,31 @@
 {
-  "name": "zhistory-webui",
+  "name": "zhistory-ui",
   "version": "0.0.0",
   "type": "commonjs",
   "description": "",
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "main": "dist/index.js",
-  "types": "dist/index.d.ts",
+  "main": "dist/core.js",
+  "types": "dist/core.d.ts",
+  "bin": {
+    "zhistory-cli": "cli-bin.js",
+    "zhistory-webui": "webui-bin.js"
+  },
   "files": [
-    "dist"
+    "dist",
+    "cli-bin.js",
+    "webui-bin.js"
   ],
   "scripts": {
     "test": "tsc --noEmit",
     "clean": "rimraf dist",
-    "build": "rimraf dist && tsc -p . && rimraf dist/tsconfig.tsbuildinfo dist/*.test.d.ts dist/*.test.js dist/*.spec.d.ts dist/*.spec.js",
+    "build": "rimraf dist && tsc -p . && rimraf dist/tsconfig.tsbuildinfo dist/*.test.d.ts dist/*.test.js dist/*.spec.d.ts dist/*.spec.js dist/cli.d.ts dist/web-ui.d.ts",
     "tsc": "tsc -p .",
     "dev": "tsc -p . --watch"
+  },
+  "dependencies": {
+    "open": "^11.0.0"
   },
   "devDependencies": {
     "@types/node": "^24.11.0",
@@ -24,8 +33,5 @@
     "ts-node": "^10.9.2",
     "ts-node-dev": "^2.0.0",
     "typescript": "^5.9.3"
-  },
-  "dependencies": {
-    "open": "^11.0.0"
   }
 }
