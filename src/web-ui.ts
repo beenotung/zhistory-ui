@@ -1,5 +1,6 @@
 import { join } from 'path'
-import { formatTime, parseZHistory, readZHistory } from './core'
+import { formatTime, parseZHistory } from './core'
+import { readZHistory } from './fs'
 import { tmpdir } from 'os'
 import { createWriteStream } from 'fs'
 import open from 'open'
