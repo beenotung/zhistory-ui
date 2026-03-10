@@ -13,15 +13,6 @@
   "main": "dist/core.js",
   "types": "dist/core.d.ts",
   "browser": "dist/core.js",
-  "bin": {
-    "zhistory-cli": "cli-bin.js",
-    "zhistory-webui": "webui-bin.js"
-  },
-  "files": [
-    "dist",
-    "cli-bin.js",
-    "webui-bin.js"
-  ],
   "exports": {
     ".": {
       "import": "./dist/core.js",
@@ -34,6 +25,15 @@
       "types": "./dist/fs.d.ts"
     }
   },
+  "bin": {
+    "zhistory-cli": "cli-bin.js",
+    "zhistory-webui": "webui-bin.js"
+  },
+  "files": [
+    "dist",
+    "cli-bin.js",
+    "webui-bin.js"
+  ],
   "scripts": {
     "test": "tsc --noEmit",
     "clean": "rimraf dist",
