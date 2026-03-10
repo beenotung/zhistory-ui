@@ -23,7 +23,7 @@ Then it can be called with `<command>`
 
 If you don't want to install it globally, you can call it with `npx -p zhistory-ui -y <command>` instead.
 
-You can also install `zhistory-ui` with [pnpm](https://pnpm.io/), which will be called with `pnpx -p zhistory-ui -y <command>`
+You can also install `zhistory-ui` with [pnpm](https://pnpm.io/), or run without installing with `pnpx --package=zhistory-ui zhistory-cli` or `pnpx --package=zhistory-ui zhistory-webui`
 
 ## Requirements
 
