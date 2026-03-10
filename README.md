@@ -19,12 +19,11 @@ A TypeScript library and CLI tool for parsing and displaying Z shell history fil
 npm install -g zhistory-ui
 ```
 
-Or use with npx without installing:
+Then it can be called with `<command>`
 
-```bash
-npx zhistory-cli
-npx zhistory-webui
-```
+If you don't want to install it globally, you can call it with `npx -p zhistory-ui -y <command>` instead.
+
+You can also install `zhistory-ui` with [pnpm](https://pnpm.io/), which will be called with `pnpx -p zhistory-ui -y <command>`
 
 ## Requirements
 
