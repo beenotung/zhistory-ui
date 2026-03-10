@@ -8,6 +8,7 @@
   "license": "ISC",
   "main": "dist/core.js",
   "types": "dist/core.d.ts",
+  "browser": "dist/core.js",
   "bin": {
     "zhistory-cli": "cli-bin.js",
     "zhistory-webui": "webui-bin.js"
@@ -17,6 +18,18 @@
     "cli-bin.js",
     "webui-bin.js"
   ],
+  "exports": {
+    ".": {
+      "import": "./dist/core.js",
+      "require": "./dist/core.js",
+      "types": "./dist/core.d.ts"
+    },
+    "./fs": {
+      "import": "./dist/fs.js",
+      "require": "./dist/fs.js",
+      "types": "./dist/fs.d.ts"
+    }
+  },
   "scripts": {
     "test": "tsc --noEmit",
     "clean": "rimraf dist",

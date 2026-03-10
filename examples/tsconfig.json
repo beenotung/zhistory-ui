@@ -1,7 +1,8 @@
 {
   "compilerOptions": {
     "target": "es2022",
-    "module": "commonjs",
+    "module": "Node16",
+    "moduleResolution": "node16",
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
@@ -10,9 +11,5 @@
     "declaration": true,
     "outDir": "dist"
   },
-  "exclude": [
-    "dist",
-    "scripts",
-    "examples"
-  ]
+  "exclude": ["dist", "scripts"]
 }
