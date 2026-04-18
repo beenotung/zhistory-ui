@@ -18,14 +18,16 @@ stream.write(/* html */ `<!DOCTYPE html>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>ZHistory</title>
 <style>
-	body {
+	.search-bar {
+		position: fixed;
+		margin: 1rem;
+		top: 0;
+		right: 0;
 	}
 	.container {
 		border-collapse: collapse;
 		max-width: 100%;
 		overflow-x: auto;
-	}
-	.line {
 	}
 	.time {
 		background-color: bisque;
@@ -44,6 +46,10 @@ stream.write(/* html */ `<!DOCTYPE html>
 </head>
 <body>
 <h1>ZHistory</h1>
+<div class="search-bar">
+	<input id="searchInput" placeholder="Search..." oninput="search()" />
+	<div id="searchResult"></div>
+</div>
 <div class="container">
     `)
 for (let line of seq) {
@@ -55,9 +61,40 @@ for (let line of seq) {
 }
 
 stream.write(/* html */ `
-		</tbody>
-	</table>
 </div>
+<script>
+function search() {
+  let patterns = searchInput.value
+    .split(' ')
+    .map(pattern => pattern.trim())
+    .filter(pattern => pattern.length > 0)
+  let lines = document.querySelectorAll('.container .line')
+  if (patterns.length === 0) {
+    for (let line of lines) {
+      line.hidden = false
+    }
+    searchResult.hidden = true
+  } else {
+    let seen_commands = new Set()
+    function filter(line) {
+      let command = line.querySelector('.command').innerText.trim()
+      let matched = patterns.every(pattern => command.includes(pattern))
+      if (!matched) return false
+      if (seen_commands.has(command)) return false
+      seen_commands.add(command)
+      return true
+    }
+    for (let line of lines) {
+      line.hidden = !filter(line)
+    }
+    let m = seen_commands.size.toLocaleString()
+    let n = lines.length.toLocaleString()
+    searchResult.innerText = m + '/' + n + ' matches'
+    searchResult.hidden = false
+  }
+}
+search()
+</script>
 </body>
 </html>`)
 
