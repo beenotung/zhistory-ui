@@ -8,8 +8,9 @@ A TypeScript library and CLI tool for parsing and displaying Z shell history fil
 
 - Parse Z shell history files (`~/.zhistory`)
 - Display command history with timestamps and execution time
-- CLI tool for terminal output, with optional substring search (multiple terms are AND-matched; unique commands only)
-- Web UI tool for browser visualization, with a search box (same AND / unique-command behavior as the CLI, in-page filtering)
+- Substring search: multiple terms are AND-matched on the command text; each distinct command is shown once (first occurrence)
+- CLI tool for terminal output
+- Web UI tool for browser visualization
 - TypeScript support with full type definitions
 - Isomorphic package: works in Node.js and browsers
 
